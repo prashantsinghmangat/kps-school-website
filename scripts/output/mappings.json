@@ -1,0 +1,30 @@
+{
+  "galleryCategories": [
+    { "id": 1, "name": "IMAGE GALLERY" },
+    { "id": 2, "name": "FUNCTION" },
+    { "id": 3, "name": "pariksha pe charcha" },
+    { "id": 4, "name": "TOPPERS 2019 - 20" },
+    { "id": 5, "name": "TOPPERS 2020-2021" },
+    { "id": 6, "name": "TOPPERS 2021-2022" },
+    { "id": 9, "name": "RESULT - 2022 - 23" },
+    { "id": 11, "name": "KRISHNA NEWS" },
+    { "id": 12, "name": "RESULT 2023-24" }
+  ],
+  "homeworkClasses": [
+    { "id": 1, "name": "CLASS IST" },
+    { "id": 2, "name": "CLASS IIND" },
+    { "id": 3, "name": "CLASS IIIRD" },
+    { "id": 4, "name": "CLASS IVTH" },
+    { "id": 5, "name": "CLASS VTH" },
+    { "id": 6, "name": "CLASS VITH" },
+    { "id": 7, "name": "CLASS VIITH" },
+    { "id": 8, "name": "CLASS VIIITH" },
+    { "id": 9, "name": "CLASS IXTH" },
+    { "id": 10, "name": "CLASS XTH" },
+    { "id": 11, "name": "CLASS XITH" },
+    { "id": 12, "name": "CLASS XII" },
+    { "id": 13, "name": "NURSERY" },
+    { "id": 14, "name": "LKG" },
+    { "id": 15, "name": "UKG" }
+  ]
+}
