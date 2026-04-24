@@ -171,7 +171,7 @@ export async function Footer() {
         </div>
 
         {/* Bottom strip */}
-        <div className="mt-14 border-t border-white/15 pt-6 pb-8">
+        <div className="mt-14 border-t border-white/15 pt-6 pb-24 md:pb-8">
           <div className="flex flex-col gap-3 text-xs text-white/75 md:flex-row md:items-center md:justify-between">
             <p>
               © {year} {SITE_NAME}. All rights reserved.

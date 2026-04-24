@@ -87,6 +87,14 @@
     color: var(--color-foreground);
   }
 
+  /* Kill native <details> disclosure triangles — we render our own icon. */
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;

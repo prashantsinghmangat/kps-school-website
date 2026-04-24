@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import {
   SITE_NAME,
   SITE_URL,
@@ -79,13 +80,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-IN" className={`${sans.variable} ${heading.variable}`}>
       <body className="flex min-h-screen flex-col">
+        {/* Navigation progress bar — fires on every client-side navigation,
+            shows a gold bar at the top so clicks never feel dead. */}
+        <NextTopLoader
+          color="#f5b800"
+          height={3}
+          showSpinner={false}
+          crawl
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #f5b800, 0 0 5px #f5b800"
+        />
         <JsonLdSchool />
         <Header />
-        {/* `pb-20 md:pb-0` reserves space on mobile so page content doesn't
-            hide behind MobileBottomBar. */}
-        <main id="main" className="flex-1 pb-20 md:pb-0">
+        <main id="main" className="flex-1">
           {children}
         </main>
+        {/* Footer carries the bottom offset (pb-24 md:pb-0) so the MobileBottomBar
+            doesn't hide the copyright line. */}
         <Footer />
         <FloatingWhatsApp />
         <MobileBottomBar />

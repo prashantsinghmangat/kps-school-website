@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 import { PageHero } from "@/components/common/page-hero";
 import { getFaq } from "@/lib/api";
 import { SITE_URL } from "@/lib/constants/seo";
@@ -37,29 +38,26 @@ export default async function FaqPage() {
         ]}
       />
       <section className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16">
-        <dl className="space-y-4">
+        <ul className="space-y-3">
           {faq.map((q, i) => (
-            <details
-              key={i}
-              className="group rounded-lg border border-[--color-border] bg-white p-5 transition-shadow open:shadow-md"
-            >
-              <summary className="cursor-pointer list-none">
-                <dt className="flex items-baseline justify-between gap-4 font-[family-name:var(--font-heading)] text-base font-semibold">
-                  <span>{q.question}</span>
-                  <span className="select-none text-[--color-primary] transition-transform group-open:rotate-45">
-                    +
+            <li key={i}>
+              <details className="group overflow-hidden rounded-xl border border-[--color-border] bg-white shadow-sm transition-shadow open:shadow-md">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 font-[family-name:var(--font-heading)] text-base font-semibold text-[--color-neutral-dark] transition-colors hover:bg-[--color-surface-cool]">
+                  <span className="flex-1">{q.question}</span>
+                  <span className="inline-flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[--color-surface-cool] text-[--color-primary] transition-transform duration-200 group-open:rotate-180 group-open:bg-[--color-primary] group-open:text-white">
+                    <ChevronDown size={16} />
                   </span>
-                </dt>
-              </summary>
-              <dd className="mt-3 text-sm leading-relaxed text-[--color-muted-foreground]">
-                {q.answer}
-              </dd>
-            </details>
+                </summary>
+                <div className="border-t border-[--color-border] bg-[--color-surface-cool]/40 px-5 py-4 text-sm leading-relaxed text-[--color-muted-foreground]">
+                  {q.answer}
+                </div>
+              </details>
+            </li>
           ))}
-        </dl>
+        </ul>
 
-        <div className="mt-10 rounded-lg border border-[--color-border] bg-[--color-muted] p-6 text-sm">
-          <p className="font-medium">Didn&apos;t find what you were looking for?</p>
+        <div className="mt-10 rounded-xl border border-[--color-border] bg-gradient-to-br from-[--color-surface-cool] to-white p-6 text-sm">
+          <p className="font-semibold">Didn&apos;t find what you were looking for?</p>
           <p className="mt-1 text-[--color-muted-foreground]">
             Please{" "}
             <Link href="/contact" className="text-[--color-primary] hover:underline">

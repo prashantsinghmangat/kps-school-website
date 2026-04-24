@@ -67,7 +67,7 @@ export function HeroSlider({ slides, autoplayMs = 5000 }: HeroSliderProps) {
               aria-roledescription="slide"
               aria-label={`${i + 1} of ${slides.length}`}
             >
-              <div className="relative aspect-[16/7] w-full">
+              <div className="relative aspect-[4/3] w-full sm:aspect-[16/9] md:aspect-[16/7]">
                 <ResilientImage
                   src={slide.src}
                   alt={slide.alt}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink, ShieldCheck, Phone } from "lucide-react";
+import { ExternalLink, ShieldCheck, Phone, QrCode } from "lucide-react";
 import { PageHero } from "@/components/common/page-hero";
 import { getSiteSettings } from "@/lib/api";
 
@@ -37,8 +37,8 @@ export default async function PayFeesPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
-        <div className="grid gap-6 md:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <a
             href={HDFC_FEE_URL}
             target="_blank"
@@ -93,6 +93,28 @@ export default async function PayFeesPage() {
               Open login <ExternalLink size={14} />
             </span>
           </a>
+
+          <div className="group flex flex-col items-center rounded-xl border border-[--color-border] bg-white p-6 text-center shadow-sm transition hover:-translate-y-0.5 hover:border-[--color-primary] hover:shadow-lg">
+            <div className="relative flex h-40 w-40 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-[--color-border]">
+              <Image
+                src="/brand/fee-qr.jpeg"
+                alt="Scan to pay via UPI"
+                width={300}
+                height={300}
+                className="h-full w-full object-contain p-1"
+              />
+            </div>
+            <h2 className="mt-4 inline-flex items-center gap-2 font-[family-name:var(--font-heading)] text-lg font-bold text-[--color-primary]">
+              <QrCode size={18} /> Scan &amp; Pay (UPI)
+            </h2>
+            <p className="mt-2 text-sm text-[--color-muted-foreground]">
+              Scan this QR from any UPI app (PhonePe, Google Pay, Paytm, BHIM) to
+              pay school fees directly. Include student name &amp; class in the note.
+            </p>
+            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-[--color-highlight-foreground]">
+              <span className="rounded-full bg-[--color-highlight] px-2 py-0.5">UPI ready</span>
+            </span>
+          </div>
         </div>
 
         <div className="mt-10 grid gap-4 rounded-xl border border-[--color-border] bg-[--color-surface-cool] p-6 md:grid-cols-2">
