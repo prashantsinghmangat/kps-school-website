@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CalendarDays, Users, FileCheck, Wallet, CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/common/page-hero";
 import { Prose } from "@/components/common/prose";
 import { Reveal } from "@/components/common/reveal";
@@ -68,84 +69,145 @@ export default async function AdmissionsPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-5xl gap-6 px-4 pb-12 md:grid-cols-2 md:px-6 md:pb-16">
-        <div className="rounded-lg border border-[--color-border] bg-white p-6">
-          <h2 className="font-[family-name:var(--font-heading)] text-xl font-semibold">
-            Age eligibility
-          </h2>
-          <dl className="mt-4 space-y-3 text-sm">
+      <section className="mx-auto grid max-w-6xl gap-6 px-4 pb-12 md:grid-cols-2 md:px-6 md:pb-16">
+        <DetailCard title="Age eligibility" icon={Users}>
+          <dl className="divide-y divide-[--color-border]">
             {ad.ageEligibility.map((e) => (
-              <div key={e.grade}>
-                <dt className="font-semibold">{e.grade}</dt>
-                <dd className="text-[--color-muted-foreground]">{e.minimumAge}</dd>
+              <div key={e.grade} className="flex items-start justify-between gap-4 py-3 first:pt-0 last:pb-0">
+                <dt className="font-semibold text-[--color-neutral-dark]">{e.grade}</dt>
+                <dd className="text-right text-sm text-[--color-muted-foreground]">
+                  {e.minimumAge}
+                </dd>
               </div>
             ))}
           </dl>
-          <p className="mt-4 text-xs italic text-[--color-muted-foreground]">
-            Age cutoffs shown are as per CBSE norms. Please confirm current-year criteria
-            with the school office.
+          <p className="mt-4 border-t border-dashed border-[--color-border] pt-3 text-xs italic text-[--color-muted-foreground]">
+            Age cutoffs shown are as per CBSE norms. Please confirm current-year
+            criteria with the school office.
           </p>
-        </div>
+        </DetailCard>
 
-        <div className="rounded-lg border border-[--color-border] bg-white p-6">
-          <h2 className="font-[family-name:var(--font-heading)] text-xl font-semibold">
-            Important dates
-          </h2>
-          <dl className="mt-4 space-y-3 text-sm">
+        <DetailCard title="Important dates" icon={CalendarDays}>
+          <dl className="space-y-3">
             {ad.importantDates.map((d) => (
-              <div key={d.label}>
-                <dt className="font-semibold">{d.label}</dt>
-                <dd className="text-[--color-muted-foreground]">{d.value}</dd>
+              <div
+                key={d.label}
+                className="flex items-center justify-between gap-4 rounded-lg bg-[--color-surface-cool] px-4 py-2.5 text-sm"
+              >
+                <dt className="font-medium text-[--color-neutral-dark]">{d.label}</dt>
+                <dd
+                  className={`font-semibold ${
+                    d.value.startsWith("TBD")
+                      ? "text-[--color-muted-foreground]"
+                      : "text-[--color-primary]"
+                  }`}
+                >
+                  {d.value}
+                </dd>
               </div>
             ))}
           </dl>
-        </div>
+        </DetailCard>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 pb-12 md:px-6 md:pb-16">
-        <div className="rounded-lg border border-[--color-border] bg-white p-6">
-          <h2 className="font-[family-name:var(--font-heading)] text-xl font-semibold">
-            Documents required
-          </h2>
-          <ul className="mt-4 grid gap-2 text-sm md:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6 md:pb-16">
+        <DetailCard title="Documents required" icon={FileCheck}>
+          <ul className="grid gap-3 text-sm md:grid-cols-2">
             {ad.documentsRequired.map((d) => (
-              <li key={d} className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 flex-none rounded-full bg-[--color-primary]" />
-                <span>{d}</span>
+              <li
+                key={d}
+                className="flex items-start gap-2.5 rounded-lg border border-[--color-border] bg-[--color-surface-cool]/60 p-3"
+              >
+                <CheckCircle2
+                  size={16}
+                  className="mt-0.5 flex-none text-[--color-primary]"
+                />
+                <span className="text-[--color-neutral-dark]">{d}</span>
               </li>
             ))}
           </ul>
-        </div>
+        </DetailCard>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 pb-16 md:px-6">
-        <div className="rounded-lg border border-[--color-border] bg-white p-6">
-          <h2 className="font-[family-name:var(--font-heading)] text-xl font-semibold">
-            Fee structure
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed">{ad.feeStructureNote}</p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link
-              href="/admissions/apply"
-              className="rounded-md bg-[--color-primary] px-4 py-2 text-sm font-semibold text-[--color-primary-foreground] hover:opacity-90"
-            >
-              Apply online
-            </Link>
-            <Link
-              href="/downloads"
-              className="rounded-md border border-[--color-border] bg-white px-4 py-2 text-sm font-semibold hover:bg-[--color-muted]"
-            >
-              Prospectus & forms
-            </Link>
-            <Link
-              href="/enquiry"
-              className="rounded-md border border-[--color-border] bg-white px-4 py-2 text-sm font-semibold hover:bg-[--color-muted]"
-            >
-              Enquire
-            </Link>
+      <section className="mx-auto max-w-6xl px-4 pb-16 md:px-6">
+        <div className="relative overflow-hidden rounded-xl border border-[--color-border] bg-white shadow-sm">
+          <span
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] via-[--color-secondary] to-[--color-highlight]"
+          />
+          <div className="bg-gradient-to-br from-[--color-surface-cool] via-white to-white p-6 md:p-8">
+            <div className="flex items-start gap-4">
+              <span className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
+                <Wallet size={22} />
+              </span>
+              <div className="flex-1">
+                <h2 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[--color-neutral-dark] md:text-2xl">
+                  Fee structure
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-[--color-foreground]">
+                  {ad.feeStructureNote}
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href="/admissions/apply"
+                className="inline-flex items-center gap-1.5 rounded-md bg-[--color-primary] px-5 py-2.5 text-sm font-semibold text-[--color-primary-foreground] shadow-sm transition hover:brightness-110 hover:shadow-md"
+              >
+                Apply online
+              </Link>
+              <Link
+                href="/downloads"
+                className="rounded-md border border-[--color-border] bg-white px-5 py-2.5 text-sm font-semibold transition hover:border-[--color-primary]/40 hover:bg-[--color-muted]"
+              >
+                Prospectus &amp; forms
+              </Link>
+              <Link
+                href="/pay-fees"
+                className="rounded-md border border-[--color-border] bg-white px-5 py-2.5 text-sm font-semibold transition hover:border-[--color-primary]/40 hover:bg-[--color-muted]"
+              >
+                Pay fees online
+              </Link>
+              <Link
+                href="/enquiry"
+                className="rounded-md border border-[--color-border] bg-white px-5 py-2.5 text-sm font-semibold transition hover:border-[--color-primary]/40 hover:bg-[--color-muted]"
+              >
+                Enquire
+              </Link>
+            </div>
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+function DetailCard({
+  title,
+  icon: Icon,
+  children,
+}: {
+  title: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="relative overflow-hidden rounded-xl border border-[--color-border] bg-white shadow-sm">
+      <span
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] via-[--color-secondary] to-[--color-highlight]"
+      />
+      <div className="p-6 md:p-7">
+        <div className="flex items-center gap-3">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
+            <Icon size={20} />
+          </span>
+          <h2 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[--color-neutral-dark] md:text-xl">
+            {title}
+          </h2>
+        </div>
+        <div className="mt-5">{children}</div>
+      </div>
+    </div>
   );
 }

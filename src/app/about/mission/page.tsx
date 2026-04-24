@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Target } from "lucide-react";
 import { PageHero } from "@/components/common/page-hero";
-import { Prose } from "@/components/common/prose";
+import { CmsPageView } from "@/components/common/cms-page-view";
 import { getCmsPage } from "@/lib/api";
 
 export const metadata: Metadata = {
@@ -25,9 +26,17 @@ export default async function MissionPage() {
           { href: "/about/mission", label: page.title },
         ]}
       />
-      <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
-        <Prose text={page.body} />
-      </section>
+      <CmsPageView
+        title={page.title}
+        body={page.body}
+        icon={Target}
+        kicker="What we set out to do every day"
+        siblings={[
+          { href: "/about/vision", label: "Our Vision" },
+          { href: "/about/motto", label: "School Motto" },
+          { href: "/about/curriculum", label: "Curriculum" },
+        ]}
+      />
     </>
   );
 }
