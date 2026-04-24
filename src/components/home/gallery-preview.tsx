@@ -39,20 +39,31 @@ export async function GalleryPreview() {
         </Link>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+      <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
         {preview.map((img, i) => (
           <Link
             key={`${i}-${img.url}`}
             href={`/gallery/${img.categorySlug}`}
-            className="group relative aspect-square overflow-hidden rounded-lg bg-[--color-muted]"
+            className="group relative aspect-square overflow-hidden rounded-xl bg-[--color-muted] shadow-sm ring-1 ring-[--color-border] transition-all duration-300 hover:shadow-2xl hover:ring-[--color-primary]/40"
           >
             <ResilientImage
               src={img.url}
               alt={img.caption ?? "Krishna Public School photo"}
               fill
               sizes="(min-width: 768px) 25vw, 50vw"
-              className="object-cover transition-transform group-hover:scale-[1.05]"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.08]"
             />
+            {/* Permanent subtle bottom-fade to separate from background */}
+            <div
+              aria-hidden
+              className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent opacity-60 transition-opacity group-hover:opacity-80"
+            />
+            {/* Category label that slides up on hover */}
+            <div className="absolute inset-x-0 bottom-0 translate-y-6 p-3 text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[--color-highlight] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[--color-highlight-foreground]">
+                {img.categorySlug.replace(/-/g, " ")}
+              </span>
+            </div>
           </Link>
         ))}
       </div>

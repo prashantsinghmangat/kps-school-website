@@ -1,6 +1,6 @@
 import { ResilientImage } from "@/components/common/resilient-image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { getFacilities } from "@/lib/api";
 
 export async function FacilitiesPreview() {
@@ -35,21 +35,37 @@ export async function FacilitiesPreview() {
             <Link
               key={f.slug}
               href={`/facilities/${f.slug}`}
-              className="group overflow-hidden rounded-lg bg-white transition-shadow hover:shadow-lg"
+              className="group relative overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-[--color-border] transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:ring-[--color-primary]/40"
             >
-              <div className="relative aspect-[4/3] bg-[--color-muted]">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[--color-muted]">
                 {f.images[0] ? (
                   <ResilientImage
                     src={f.images[0]}
                     alt={f.name}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform group-hover:scale-[1.03]"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.06]"
                   />
                 ) : null}
+                {/* Bottom-to-top dark gradient reveal on hover */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-[--color-primary-deep]/90 via-[--color-primary-deep]/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                {/* Gold ribbon appearing from the top on hover */}
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-0 h-1 w-0 bg-[--color-highlight] transition-all duration-500 group-hover:w-full"
+                />
+                {/* Caption that reveals on hover */}
+                <div className="absolute inset-x-0 bottom-0 translate-y-2 p-5 text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <span className="inline-flex items-center gap-1 text-sm font-semibold">
+                    Explore facility <ArrowRight size={14} />
+                  </span>
+                </div>
               </div>
               <div className="p-5">
-                <h3 className="font-[family-name:var(--font-heading)] text-lg font-semibold group-hover:text-[--color-primary]">
+                <h3 className="font-[family-name:var(--font-heading)] text-lg font-semibold text-[--color-neutral-dark] group-hover:text-[--color-primary]">
                   {f.name}
                 </h3>
                 <p className="mt-1 line-clamp-2 text-sm text-[--color-muted-foreground]">

@@ -40,12 +40,18 @@ export default async function ContactPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <article className="rounded-lg border border-[--color-border] bg-white p-6">
-            <MapPin size={22} className="text-[--color-primary]" />
-            <h2 className="mt-3 font-[family-name:var(--font-heading)] text-lg font-semibold">
+          <article className="group relative overflow-hidden rounded-xl border border-[--color-border] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[--color-primary]/40 hover:shadow-lg">
+            <span
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] to-[--color-secondary] opacity-80"
+            />
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
+              <MapPin size={22} />
+            </span>
+            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-lg font-semibold text-[--color-neutral-dark]">
               Visit us
             </h2>
-            <p className="mt-2 text-sm text-[--color-muted-foreground]">
+            <p className="mt-2 text-sm leading-relaxed text-[--color-muted-foreground]">
               {settings.address.line1}
               <br />
               {settings.address.line2}
@@ -54,16 +60,25 @@ export default async function ContactPage() {
             </p>
           </article>
 
-          <article className="rounded-lg border border-[--color-border] bg-white p-6">
-            <Phone size={22} className="text-[--color-primary]" />
-            <h2 className="mt-3 font-[family-name:var(--font-heading)] text-lg font-semibold">
+          <article className="group relative overflow-hidden rounded-xl border border-[--color-border] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[--color-primary]/40 hover:shadow-lg">
+            <span
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] to-[--color-secondary] opacity-80"
+            />
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
+              <Phone size={22} />
+            </span>
+            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-lg font-semibold text-[--color-neutral-dark]">
               Call us
             </h2>
             <ul className="mt-2 space-y-2 text-sm">
               {settings.phones.map((p) => (
                 <li key={p.telHref}>
                   <p className="font-medium">{p.label}</p>
-                  <a href={p.telHref} className="text-[--color-primary] hover:underline">
+                  <a
+                    href={p.telHref}
+                    className="text-[--color-primary] transition hover:text-[--color-accent] hover:underline"
+                  >
                     {p.number}
                   </a>
                 </li>
@@ -71,9 +86,15 @@ export default async function ContactPage() {
             </ul>
           </article>
 
-          <article className="rounded-lg border border-[--color-border] bg-white p-6">
-            <Mail size={22} className="text-[--color-primary]" />
-            <h2 className="mt-3 font-[family-name:var(--font-heading)] text-lg font-semibold">
+          <article className="group relative overflow-hidden rounded-xl border border-[--color-border] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[--color-primary]/40 hover:shadow-lg">
+            <span
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] to-[--color-secondary] opacity-80"
+            />
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
+              <Mail size={22} />
+            </span>
+            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-lg font-semibold text-[--color-neutral-dark]">
               Email us
             </h2>
             <ul className="mt-2 space-y-2 text-sm">
@@ -82,7 +103,7 @@ export default async function ContactPage() {
                   <p className="font-medium">{e.label}</p>
                   <a
                     href={`mailto:${e.address}`}
-                    className="text-[--color-primary] hover:underline"
+                    className="text-[--color-primary] transition hover:text-[--color-accent] hover:underline"
                   >
                     {e.address}
                   </a>
@@ -92,16 +113,23 @@ export default async function ContactPage() {
           </article>
         </div>
 
-        <div className="mt-8 rounded-lg border border-[--color-border] bg-white p-6">
-          <Clock size={22} className="text-[--color-primary]" />
-          <h2 className="mt-3 font-[family-name:var(--font-heading)] text-lg font-semibold">
-            Hours
-          </h2>
-          <div className="mt-4 grid gap-4 md:grid-cols-3">
+        <div className="mt-8 overflow-hidden rounded-xl border border-[--color-border] bg-white shadow-sm">
+          <div className="bg-gradient-to-r from-[--color-primary] to-[--color-secondary] px-6 py-4 text-white">
+            <div className="flex items-center gap-3">
+              <Clock size={20} className="text-[--color-highlight]" />
+              <h2 className="font-[family-name:var(--font-heading)] text-lg font-semibold">
+                Hours
+              </h2>
+            </div>
+          </div>
+          <div className="grid gap-5 p-6 md:grid-cols-3">
             {settings.openingHours.map((h) => (
-              <div key={h.label}>
-                <p className="font-medium">{h.label}</p>
-                <p className="text-sm text-[--color-muted-foreground]">{h.hours}</p>
+              <div
+                key={h.label}
+                className="rounded-lg bg-[--color-surface-cool] p-4"
+              >
+                <p className="font-semibold text-[--color-neutral-dark]">{h.label}</p>
+                <p className="mt-1 text-sm text-[--color-muted-foreground]">{h.hours}</p>
                 <p className="text-xs text-[--color-muted-foreground]">{h.days}</p>
                 {h.note ? (
                   <p className="mt-1 text-xs italic text-[--color-muted-foreground]">{h.note}</p>
