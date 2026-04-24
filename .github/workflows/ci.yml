@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # pnpm/action-setup@v4 reads the pinned version from
       # `packageManager` in package.json, so we don't specify it here.
