@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ResilientImage } from "@/components/common/resilient-image";
 import Link from "next/link";
 import { PageHero } from "@/components/common/page-hero";
 import { getFacilities } from "@/lib/api";
@@ -36,7 +36,7 @@ export default async function FacilitiesPage() {
             >
               <div className="relative aspect-[4/3] bg-[--color-muted]">
                 {f.images[0] ? (
-                  <Image
+                  <ResilientImage
                     src={f.images[0]}
                     alt={f.name}
                     fill

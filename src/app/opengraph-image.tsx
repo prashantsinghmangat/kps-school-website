@@ -17,52 +17,91 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "72px 80px",
+          padding: "64px 80px",
           background:
-            "linear-gradient(135deg, #b01c2f 0%, #8a1525 40%, #0b2447 100%)",
+            "linear-gradient(135deg, #0a3d62 0%, #174873 45%, #05253f 100%)",
           color: "white",
           fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+        {/* Gold accent bar */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 10,
+            background: "linear-gradient(90deg, #FFDE59 0%, #F5B800 100%)",
+          }}
+        />
+
+        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+          {/* Emblem */}
           <div
             style={{
-              width: 96,
-              height: 96,
-              borderRadius: 96,
-              background: "white",
-              color: "#b01c2f",
+              width: 112,
+              height: 112,
+              borderRadius: 56,
+              background: "#0B2447",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 44,
-              fontWeight: 800,
-              letterSpacing: "-0.02em",
+              boxShadow: "0 6px 24px rgba(0,0,0,0.25)",
             }}
           >
-            KPS
+            <div
+              style={{
+                width: 92,
+                height: 92,
+                borderRadius: 46,
+                background: "linear-gradient(180deg, #FFDE59 0%, #F5B800 100%)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#C8102E",
+                fontSize: 36,
+                fontWeight: 900,
+                letterSpacing: "-0.03em",
+              }}
+            >
+              KPS
+            </div>
           </div>
-          <div
-            style={{
-              fontSize: 22,
-              fontWeight: 600,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              opacity: 0.9,
-            }}
-          >
-            Krishna Public School · Meerut
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <div
+              style={{
+                fontSize: 20,
+                fontWeight: 600,
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                opacity: 0.85,
+                color: "#F5B800",
+              }}
+            >
+              CBSE · Meerut
+            </div>
+            <div
+              style={{
+                fontSize: 28,
+                fontWeight: 700,
+                opacity: 0.95,
+              }}
+            >
+              Since the day this school began
+            </div>
           </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div
             style={{
-              fontSize: 78,
-              fontWeight: 800,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.05,
-              maxWidth: 960,
+              fontSize: 82,
+              fontWeight: 900,
+              letterSpacing: "-0.035em",
+              lineHeight: 1.02,
+              maxWidth: 980,
             }}
           >
             {SITE_NAME}
@@ -71,7 +110,8 @@ export default function OpenGraphImage() {
             style={{
               fontSize: 30,
               opacity: 0.9,
-              maxWidth: 900,
+              maxWidth: 940,
+              lineHeight: 1.25,
             }}
           >
             {SITE_TAGLINE}
@@ -84,11 +124,20 @@ export default function OpenGraphImage() {
             alignItems: "center",
             justifyContent: "space-between",
             fontSize: 22,
-            opacity: 0.85,
+            paddingTop: 16,
+            borderTop: "1px solid rgba(255,255,255,0.2)",
           }}
         >
-          <span>Labor Omnia Vincit</span>
-          <span>krishnapublicschoolmeerut.in</span>
+          <span
+            style={{
+              color: "#F5B800",
+              fontStyle: "italic",
+              letterSpacing: "0.04em",
+            }}
+          >
+            Labor Omnia Vincit
+          </span>
+          <span style={{ opacity: 0.85 }}>krishnapublicschoolmeerut.in</span>
         </div>
       </div>
     ),

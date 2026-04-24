@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import Image from "next/image";
+import { ResilientImage } from "@/components/common/resilient-image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { SliderSlide } from "@/lib/api";
@@ -68,13 +68,24 @@ export function HeroSlider({ slides, autoplayMs = 5000 }: HeroSliderProps) {
               aria-label={`${i + 1} of ${slides.length}`}
             >
               <div className="relative aspect-[16/7] w-full">
-                <Image
+                <ResilientImage
                   src={slide.src}
                   alt={slide.alt}
                   fill
                   priority={i === 0}
                   sizes="100vw"
                   className="object-cover"
+                />
+                {/* Brand gradient overlay — primary at bottom-left fading
+                    into navy at top-right. Adds depth + colour cue. */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[--color-primary]/40 via-transparent to-[--color-secondary]/20 mix-blend-multiply"
+                />
+                {/* Gold accent bar at the bottom for the "ribbon" feel. */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[--color-accent]/0 via-[--color-accent] to-[--color-accent]/0"
                 />
               </div>
             </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ResilientImage } from "@/components/common/resilient-image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/common/page-hero";
@@ -50,7 +50,7 @@ export default async function GalleryCategoryPage({ params }: Props) {
               key={`${i}-${img.url}`}
               className="relative aspect-square overflow-hidden rounded-lg bg-[--color-muted]"
             >
-              <Image
+              <ResilientImage
                 src={img.url}
                 alt={img.caption ?? `${cat.name} photo ${i + 1}`}
                 fill

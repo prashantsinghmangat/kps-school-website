@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ResilientImage } from "@/components/common/resilient-image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check } from "lucide-react";
@@ -54,7 +54,7 @@ export default async function FacilityDetailPage({ params }: Props) {
       <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
         {f.images[0] ? (
           <div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-[--color-muted]">
-            <Image
+            <ResilientImage
               src={f.images[0]}
               alt={f.name}
               fill

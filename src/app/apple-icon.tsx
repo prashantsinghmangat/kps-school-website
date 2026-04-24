@@ -11,18 +11,39 @@ export default function AppleIcon() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#b01c2f",
-          color: "white",
+          background: "linear-gradient(135deg, #0a3d62 0%, #174873 55%, #05253f 100%)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 110,
-          fontWeight: 800,
-          fontFamily: "system-ui, -apple-system, sans-serif",
-          letterSpacing: "-0.04em",
         }}
       >
-        K
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#ffffff",
+            fontFamily: "system-ui, -apple-system, sans-serif",
+            letterSpacing: "-0.03em",
+          }}
+        >
+          <div style={{ display: "flex", fontSize: 64, fontWeight: 900, lineHeight: 1 }}>
+            <span style={{ color: "#c8102e" }}>K</span>
+            <span>PS</span>
+          </div>
+          <div
+            style={{
+              marginTop: 10,
+              fontSize: 12,
+              letterSpacing: "0.25em",
+              color: "#f5b800",
+              fontWeight: 600,
+            }}
+          >
+            MEERUT
+          </div>
+        </div>
       </div>
     ),
     { ...size },

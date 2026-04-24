@@ -9,12 +9,20 @@ You do **not** need to fill in anything technical. Just provide the information 
 
 ## 1. Logo and visual identity
 
+> **Current state.** The site renders a faithful SVG placeholder echoing
+> the KPS crest style (navy outer ring + gold medallion + red "KPS"
+> monogram). Brand tokens are calibrated to the logo wordmark: primary red
+> `#C8102E`, navy `#0B2447`, gold `#F5B800`. Drop a real logo file at
+> `public/logo.png` (or `public/logo.svg`) and we'll switch the header to
+> use it.
+
 | # | Item | What we need | Why |
 |---|------|--------------|-----|
-| 1.1 | School logo | Original file in **SVG** format (preferred) or high-resolution **PNG** with transparent background | Shown in the header on every page, the favicon, and the Open Graph image shared on social media |
-| 1.2 | Brand colour — primary | Exact **hex code** (e.g. `#B01C2F`) of the main red/maroon in the logo | Used across buttons, headings, highlights. Our current placeholder is `#B01C2F` — please confirm |
-| 1.3 | Brand colour — secondary | Exact **hex code** for the secondary colour (navy/blue if any) | Used for footer, accents |
-| 1.4 | Logo usage | Is the current logo final, or being redesigned? | So we don't pin the design to something that changes |
+| 1.1 | School logo | Original file in **SVG** format (preferred) or high-resolution **PNG** (≥512×512, transparent background). Save as `public/logo.png` or `public/logo.svg` in the repo. | Header, favicon, OG card |
+| 1.2 | Brand colour — primary | Confirm `#C8102E` (bright school red, matches the wordmark), or provide the exact hex used on the printed logo | Buttons, headings, highlights |
+| 1.3 | Brand colour — secondary | Confirm `#0B2447` (deep navy from the emblem ring), or provide the exact hex | Top bar, footer, stats band |
+| 1.4 | Brand colour — accent | Confirm `#F5B800` (sun-gold from the "Labor Omnia Vincit" ribbon), or provide the exact hex | "Admissions Open" badge, accent lines |
+| 1.5 | Logo usage | Is the current logo final, or being redesigned? | So we don't pin the design to something that changes |
 
 ---
 

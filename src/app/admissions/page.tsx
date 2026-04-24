@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/common/page-hero";
 import { Prose } from "@/components/common/prose";
+import { Reveal } from "@/components/common/reveal";
 import { JsonLdEducationalProgram } from "@/components/seo/json-ld";
 import { getAdmissions } from "@/lib/api";
 
@@ -32,30 +33,39 @@ export default async function AdmissionsPage() {
         <Prose text={ad.overview} />
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 pb-12 md:px-6 md:pb-16">
-        <h2 className="font-[family-name:var(--font-heading)] text-2xl font-semibold">
-          Admission process
-        </h2>
-        <ol className="mt-6 space-y-4">
-          {ad.process.map((step) => (
-            <li
-              key={step.step}
-              className="flex gap-5 rounded-lg border border-[--color-border] bg-white p-5"
-            >
-              <div className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-[--color-primary] text-sm font-bold text-[--color-primary-foreground]">
-                {step.step}
-              </div>
-              <div>
-                <h3 className="font-[family-name:var(--font-heading)] text-lg font-semibold">
+      <section className="mx-auto max-w-7xl px-4 pb-12 md:px-6 md:pb-16">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="font-[family-name:var(--font-heading)] text-2xl font-semibold md:text-3xl">
+            Admission process
+          </h2>
+          <p className="text-sm text-[--color-muted-foreground]">
+            Six steps from first enquiry to enrolment.
+          </p>
+        </div>
+
+        {/* Horizontal stepper on xl; responsive grid below. The gradient line
+            connects the circles only when items are on one row. */}
+        <div className="relative mt-10">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-[7%] right-[7%] top-7 hidden h-0.5 bg-gradient-to-r from-transparent via-[--color-primary]/35 to-transparent xl:block"
+          />
+          <ol className="grid gap-8 md:grid-cols-3 xl:grid-cols-6">
+            {ad.process.map((step, i) => (
+              <Reveal key={step.step} as="li" delay={i * 70} className="group relative flex flex-col items-center text-center">
+                <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[--color-primary] text-lg font-bold text-[--color-primary-foreground] shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-110">
+                  {step.step}
+                </div>
+                <h3 className="mt-4 font-[family-name:var(--font-heading)] text-base font-semibold">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm text-[--color-muted-foreground]">
+                <p className="mt-2 text-sm leading-relaxed text-[--color-muted-foreground]">
                   {step.description}
                 </p>
-              </div>
-            </li>
-          ))}
-        </ol>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
       </section>
 
       <section className="mx-auto grid max-w-5xl gap-6 px-4 pb-12 md:grid-cols-2 md:px-6 md:pb-16">

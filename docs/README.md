@@ -7,6 +7,7 @@ Everything you need to understand, run, extend or hand off this project.
 | File | Read this for |
 |---|---|
 | [`PROJECT_STATUS.md`](PROJECT_STATUS.md) | **Master status snapshot.** Tech stack, backend answer ("are we using the PHP backend?" — no, and why), what's done, what's pending, env vars at a glance. **If you only read one doc, read this.** |
+| [`ARCHITECTURE.md`](ARCHITECTURE.md) | **Full architecture & rebuild plan.** 10-step reference covering reverse-engineering strategy, tech-stack rationale, folder design, routing, API layer, SEO, UI/UX, performance, deployment, and example code — grounded in the actual repo. |
 | [`PROGRESS.md`](PROGRESS.md) | **Phase-by-phase log.** Every phase from scraping the legacy site through to today, with numbers, decisions and known gaps. Read top-down to understand how the project evolved. |
 | [`SCHOOL_OFFICE_CHECKLIST.md`](SCHOOL_OFFICE_CHECKLIST.md) | **What the school still needs to provide.** 80+ items in non-technical language (logo, photos, admission dates, CBSE disclosure fields, etc.), with a priority matrix at the end. Forward to the school office as-is. |
 | [`../README.md`](../README.md) | Slim root entry point — quickstart commands, TL;DR, structure diagram, pointers back to this folder. |

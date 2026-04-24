@@ -22,9 +22,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# IDE
+# IDE / harness
 .vscode/
 .idea/
+.claude/
 *.swp
 .DS_Store
 Thumbs.db

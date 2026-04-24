@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ResilientImage } from "@/components/common/resilient-image";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/common/page-hero";
 import { Prose } from "@/components/common/prose";
@@ -32,7 +32,7 @@ export default async function PrincipalMessagePage() {
         <div className="grid gap-8 md:grid-cols-[200px,1fr]">
           {msg.image ? (
             <div className="relative aspect-[3/4] w-full max-w-[200px] overflow-hidden rounded-lg bg-[--color-muted]">
-              <Image
+              <ResilientImage
                 src={msg.image}
                 alt={msg.name ?? "Principal, Krishna Public School"}
                 fill

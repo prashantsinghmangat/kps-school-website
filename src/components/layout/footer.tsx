@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { footerLinks } from "@/lib/constants/nav";
+import { SchoolLogo } from "@/components/common/school-logo";
 import { getSiteSettings } from "@/lib/api";
 import { SITE_NAME } from "@/lib/constants/seo";
 
@@ -16,10 +17,10 @@ export async function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-6">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <h3 className="font-[family-name:var(--font-heading)] text-lg font-semibold">
-              {SITE_NAME}
-            </h3>
-            <p className="mt-3 max-w-sm text-sm opacity-90">{settings.address.full}</p>
+            <div className="inline-flex items-center rounded-lg bg-white p-3 shadow-sm">
+              <SchoolLogo variant="full" height={48} />
+            </div>
+            <p className="mt-4 max-w-sm text-sm opacity-90">{settings.address.full}</p>
             <div className="mt-4 space-y-1 text-sm opacity-90">
               {settings.phones.map((p) => (
                 <p key={p.telHref}>

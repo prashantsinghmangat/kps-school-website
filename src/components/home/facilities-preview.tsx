@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ResilientImage } from "@/components/common/resilient-image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getFacilities } from "@/lib/api";
@@ -14,7 +14,8 @@ export async function FacilitiesPreview() {
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
+            <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
+              <span className="inline-block h-[2px] w-8 bg-[--color-highlight]" />
               The Campus
             </p>
             <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight md:text-4xl">
@@ -38,7 +39,7 @@ export async function FacilitiesPreview() {
             >
               <div className="relative aspect-[4/3] bg-[--color-muted]">
                 {f.images[0] ? (
-                  <Image
+                  <ResilientImage
                     src={f.images[0]}
                     alt={f.name}
                     fill

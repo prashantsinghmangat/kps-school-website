@@ -9,6 +9,8 @@ import {
 } from "@/lib/constants/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { MobileBottomBar } from "@/components/layout/mobile-bottom-bar";
+import { FloatingWhatsApp } from "@/components/common/floating-whatsapp";
 import { JsonLdSchool } from "@/components/seo/json-ld-school";
 import "./globals.css";
 
@@ -28,7 +30,7 @@ const heading = Plus_Jakarta_Sans({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#b01c2f",
+  themeColor: "#0a3d62",
 };
 
 export const metadata: Metadata = {
@@ -79,10 +81,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex min-h-screen flex-col">
         <JsonLdSchool />
         <Header />
-        <main id="main" className="flex-1">
+        {/* `pb-20 md:pb-0` reserves space on mobile so page content doesn't
+            hide behind MobileBottomBar. */}
+        <main id="main" className="flex-1 pb-20 md:pb-0">
           {children}
         </main>
         <Footer />
+        <FloatingWhatsApp />
+        <MobileBottomBar />
       </body>
     </html>
   );

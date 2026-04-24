@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Quote } from "lucide-react";
+import { ResilientImage } from "@/components/common/resilient-image";
 import { getLeadershipMessages } from "@/lib/api";
 
 function truncate(text: string, max: number): string {
@@ -20,7 +20,8 @@ export async function MessagesRow() {
   return (
     <section className="bg-[--color-muted]">
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
-        <p className="text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
+        <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
+          <span className="inline-block h-[2px] w-8 bg-[--color-highlight]" />
           From our leadership
         </p>
         <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight md:text-4xl">
@@ -41,12 +42,13 @@ export async function MessagesRow() {
                 <div className="flex gap-5 p-6">
                   <div className="relative h-20 w-20 flex-none overflow-hidden rounded-full bg-[--color-muted]">
                     {m.image ? (
-                      <Image
+                      <ResilientImage
                         src={m.image}
                         alt={m.name ?? m.title}
                         fill
                         sizes="80px"
                         className="object-cover"
+                        fallback="Photo"
                       />
                     ) : (
                       <div className="flex h-full items-center justify-center text-xs text-[--color-muted-foreground]">

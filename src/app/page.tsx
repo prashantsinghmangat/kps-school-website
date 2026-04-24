@@ -8,6 +8,9 @@ import { FacilitiesPreview } from "@/components/home/facilities-preview";
 import { GalleryPreview } from "@/components/home/gallery-preview";
 import { AdmissionsCta } from "@/components/home/admissions-cta";
 import { LocationStrip } from "@/components/home/location-strip";
+import { StatsBand } from "@/components/home/stats-band";
+import { TestimonialsSection } from "@/components/home/testimonials-section";
+import { Reveal } from "@/components/common/reveal";
 import { getSliderSlides } from "@/lib/api";
 import { SITE_NAME, SITE_URL } from "@/lib/constants/seo";
 
@@ -30,15 +33,20 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* Above-the-fold content is NOT wrapped in Reveal — it should paint
+          immediately, no fade. Reveal kicks in for sections that sit below
+          the first screen. */}
       <HeroSlider slides={slides.slice(0, 8)} />
       <NoticeBoard />
-      <WelcomeSnippet />
-      <WhyChooseUsGrid />
-      <MessagesRow />
-      <FacilitiesPreview />
-      <GalleryPreview />
-      <AdmissionsCta />
-      <LocationStrip />
+      <StatsBand />
+      <Reveal><WelcomeSnippet /></Reveal>
+      <Reveal><WhyChooseUsGrid /></Reveal>
+      <Reveal><MessagesRow /></Reveal>
+      <Reveal><TestimonialsSection /></Reveal>
+      <Reveal><FacilitiesPreview /></Reveal>
+      <Reveal><GalleryPreview /></Reveal>
+      <Reveal><AdmissionsCta /></Reveal>
+      <Reveal><LocationStrip /></Reveal>
     </>
   );
 }

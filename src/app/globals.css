@@ -1,29 +1,46 @@
 @import "tailwindcss";
 
 /*
- * KPS brand tokens — placeholder values. Confirm the exact primary colour from
- * the school logo before launch; the current value is a warm crimson picked
- * as a plausible starting point for the maroon/red-dominant logo palette.
+ * KPS brand tokens — deep-blue dominant palette.
+ * Primary blues chosen from the school office brief: #174873, #0A3D62.
+ * Neutral dark #2D2D2D used for body copy / dark surfaces.
+ * Logo red kept as the accent so the wordmark still reads as brand.
  */
 @theme {
   --color-background: #ffffff;
-  --color-foreground: #0f172a;
+  --color-foreground: #2d2d2d;
 
-  --color-primary: #b01c2f;
+  /* Primary — deep navy from the brief. */
+  --color-primary: #0a3d62;
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #0b2447;
+  /* Deeper primary, used for gradients + hover intensification. */
+  --color-primary-deep: #05253f;
+
+  /* Secondary — teal-blue for complementary surfaces. */
+  --color-secondary: #174873;
   --color-secondary-foreground: #ffffff;
 
-  --color-accent: #f59e0b;
-  --color-accent-foreground: #0f172a;
+  /* Accent — school-red from the logo wordmark. */
+  --color-accent: #c8102e;
+  --color-accent-foreground: #ffffff;
 
-  --color-muted: #f1f5f9;
-  --color-muted-foreground: #475569;
+  /* Secondary accent — sun-gold from the emblem ribbon. Used sparingly. */
+  --color-highlight: #f5b800;
+  --color-highlight-foreground: #0f172a;
 
-  --color-border: #e2e8f0;
-  --color-input: #e2e8f0;
-  --color-ring: #b01c2f;
+  /* Neutrals */
+  --color-neutral-dark: #2d2d2d;
+  --color-muted: #f1f5f8;
+  --color-muted-foreground: #52606d;
+
+  /* Surface alternation so the page doesn't feel all-white. */
+  --color-surface-warm: #f7f4ef;
+  --color-surface-cool: #eef3f9;
+
+  --color-border: #dbe3ec;
+  --color-input: #dbe3ec;
+  --color-ring: #0a3d62;
 
   --radius: 0.75rem;
 
@@ -52,6 +69,7 @@
     font-family: var(--font-heading);
     font-weight: 600;
     letter-spacing: -0.01em;
+    color: var(--color-neutral-dark);
   }
 
   a {
@@ -64,6 +82,11 @@
     outline-offset: 2px;
   }
 
+  ::selection {
+    background-color: rgba(10, 61, 98, 0.18);
+    color: var(--color-foreground);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -72,4 +95,18 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+/* Reusable brand helpers. */
+@utility brand-gradient-band {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-deep) 55%,
+    var(--color-secondary) 100%
+  );
+}
+
+@utility brand-gradient-soft {
+  background: linear-gradient(180deg, var(--color-surface-cool) 0%, #ffffff 100%);
 }

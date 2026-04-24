@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ResilientImage } from "@/components/common/resilient-image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getGalleryCategories } from "@/lib/api";
@@ -23,7 +23,8 @@ export async function GalleryPreview() {
     <section className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
+          <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
+            <span className="inline-block h-[2px] w-8 bg-[--color-highlight]" />
             Through the year
           </p>
           <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight md:text-4xl">
@@ -45,7 +46,7 @@ export async function GalleryPreview() {
             href={`/gallery/${img.categorySlug}`}
             className="group relative aspect-square overflow-hidden rounded-lg bg-[--color-muted]"
           >
-            <Image
+            <ResilientImage
               src={img.url}
               alt={img.caption ?? "Krishna Public School photo"}
               fill
