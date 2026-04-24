@@ -21,10 +21,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # pnpm/action-setup@v4 reads the pinned version from
+      # pnpm/action-setup@v6 reads the pinned version from
       # `packageManager` in package.json, so we don't specify it here.
       - name: Set up pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       - name: Set up Node
         uses: actions/setup-node@v4
