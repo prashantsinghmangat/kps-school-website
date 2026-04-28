@@ -12,6 +12,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MobileBottomBar } from "@/components/layout/mobile-bottom-bar";
 import { FloatingWhatsApp } from "@/components/common/floating-whatsapp";
+import { AdmissionsPopup } from "@/components/common/admissions-popup";
 import { JsonLdSchool } from "@/components/seo/json-ld-school";
 import "./globals.css";
 
@@ -101,6 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <FloatingWhatsApp />
         <MobileBottomBar />
+        <AdmissionsPopup />
       </body>
     </html>
   );
