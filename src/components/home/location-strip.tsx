@@ -9,12 +9,13 @@ export async function LocationStrip() {
 
   return (
     <section className="bg-[--color-muted]">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 md:grid-cols-2 md:px-6 md:py-20">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 md:py-20 lg:grid-cols-2 lg:px-8 lg:gap-10">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
+          <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
+            <span className="inline-block h-[2px] w-8 bg-[--color-highlight]" />
             Find us
           </p>
-          <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight md:text-4xl">
+          <h2 className="mt-2 font-[family-name:var(--font-heading)] text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
             Visit our campus
           </h2>
           <p className="mt-3 text-[--color-muted-foreground]">
@@ -67,7 +68,7 @@ export async function LocationStrip() {
           </div>
         </div>
 
-        <div className="relative min-h-[280px] overflow-hidden rounded-lg border border-[--color-border] bg-white md:min-h-[360px]">
+        <div className="relative min-h-[260px] overflow-hidden rounded-xl border border-[--color-border] bg-white shadow-sm sm:min-h-[320px] lg:min-h-[360px]">
           {settings.googleMaps.embedUrl ? (
             <iframe
               src={settings.googleMaps.embedUrl}

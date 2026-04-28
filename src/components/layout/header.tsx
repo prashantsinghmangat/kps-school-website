@@ -6,22 +6,36 @@ import { MobileNav } from "./mobile-nav";
 import { TopBar } from "./top-bar";
 
 /**
- * Sticky header with TopBar above. Uses backdrop blur for a frosted feel that
- * keeps the page content visible while staying readable against any
- * background. Sticky position at `top-0` means nav + quick-actions are always
- * one tap away as the parent scrolls.
+ * Sticky header with TopBar above.
+ *
+ * IMPORTANT — opacity is intentional and aggressive:
+ *   - Outer sticky wrapper: bg-white (so any pixel-level gap fills with white,
+ *     never the page underneath)
+ *   - TopBar: explicit hex on the outer wrapper (no CSS-var indirection so
+ *     the color resolves before anything paints)
+ *   - Header: solid bg-white + shadow for visual separation from the hero
+ *
+ * This deliberately fights any backdrop bleed from the hero slider's gradient
+ * overlay scrolling beneath the sticky header.
  */
 export async function Header() {
   const settings = await getSiteSettings();
 
   return (
-    <div className="sticky top-0 z-40">
+    <div className="sticky top-0 z-50" style={{ backgroundColor: "#ffffff" }}>
       <TopBar settings={settings} />
-      <header className="border-b border-[--color-border] bg-white/85 backdrop-blur supports-[backdrop-filter]:bg-white/70">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-4">
-          <Link href="/" className="flex items-center" aria-label="Krishna Public School home">
+      <header
+        className="relative border-b border-[--color-border] shadow-md"
+        style={{ backgroundColor: "#ffffff" }}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6 sm:py-3 md:py-4 lg:px-8">
+          <Link
+            href="/"
+            className="flex min-w-0 flex-shrink items-center"
+            aria-label="Krishna Public School home"
+          >
             <span className="sm:hidden">
-              <SchoolLogo variant="mark" height={42} priority />
+              <SchoolLogo variant="full" height={36} priority />
             </span>
             <span className="hidden sm:inline-flex">
               <SchoolLogo variant="full" height={48} priority />

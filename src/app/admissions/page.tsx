@@ -4,6 +4,7 @@ import { CalendarDays, Users, FileCheck, Wallet, CheckCircle2 } from "lucide-rea
 import { PageHero } from "@/components/common/page-hero";
 import { Prose } from "@/components/common/prose";
 import { Reveal } from "@/components/common/reveal";
+import { IconTile } from "@/components/common/icon-tile";
 import { JsonLdEducationalProgram } from "@/components/seo/json-ld";
 import { getAdmissions } from "@/lib/api";
 
@@ -30,11 +31,11 @@ export default async function AdmissionsPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <Prose text={ad.overview} />
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-12 md:px-6 md:pb-16">
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 md:pb-16 lg:px-8">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h2 className="font-[family-name:var(--font-heading)] text-2xl font-semibold md:text-3xl">
             Admission process
@@ -69,7 +70,7 @@ export default async function AdmissionsPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-6 px-4 pb-12 md:grid-cols-2 md:px-6 md:pb-16">
+      <section className="mx-auto grid max-w-6xl gap-6 px-4 pb-12 md:grid-cols-2 sm:px-6 md:pb-16 lg:px-8">
         <DetailCard title="Age eligibility" icon={Users}>
           <dl className="divide-y divide-[--color-border]">
             {ad.ageEligibility.map((e) => (
@@ -110,7 +111,7 @@ export default async function AdmissionsPage() {
         </DetailCard>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6 md:pb-16">
+      <section className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 md:pb-16 lg:px-8">
         <DetailCard title="Documents required" icon={FileCheck}>
           <ul className="grid gap-3 text-sm md:grid-cols-2">
             {ad.documentsRequired.map((d) => (
@@ -129,17 +130,25 @@ export default async function AdmissionsPage() {
         </DetailCard>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-16 md:px-6">
+      <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-xl border border-[--color-border] bg-white shadow-sm">
           <span
             aria-hidden
-            className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] via-[--color-secondary] to-[--color-highlight]"
+            className="absolute inset-x-0 top-0 h-1"
+            style={{
+              background:
+                "linear-gradient(90deg, #0a3d62 0%, #174873 50%, #f5b800 100%)",
+            }}
           />
-          <div className="bg-gradient-to-br from-[--color-surface-cool] via-white to-white p-6 md:p-8">
+          <div
+            className="p-6 md:p-8"
+            style={{
+              background:
+                "linear-gradient(135deg, #eef3f9 0%, #ffffff 50%, #ffffff 100%)",
+            }}
+          >
             <div className="flex items-start gap-4">
-              <span className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
-                <Wallet size={22} />
-              </span>
+              <IconTile icon={Wallet} size="lg" tone="gradient" />
               <div className="flex-1">
                 <h2 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[--color-neutral-dark] md:text-2xl">
                   Fee structure
@@ -188,20 +197,22 @@ function DetailCard({
   children,
 }: {
   title: string;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: import("lucide-react").LucideIcon;
   children: React.ReactNode;
 }) {
   return (
     <div className="relative overflow-hidden rounded-xl border border-[--color-border] bg-white shadow-sm">
       <span
         aria-hidden
-        className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] via-[--color-secondary] to-[--color-highlight]"
+        className="absolute inset-x-0 top-0 h-1"
+        style={{
+          background:
+            "linear-gradient(90deg, #0a3d62 0%, #174873 50%, #f5b800 100%)",
+        }}
       />
       <div className="p-6 md:p-7">
         <div className="flex items-center gap-3">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
-            <Icon size={20} />
-          </span>
+          <IconTile icon={Icon} size="md" tone="gradient" />
           <h2 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[--color-neutral-dark] md:text-xl">
             {title}
           </h2>

@@ -29,7 +29,7 @@ export function PagePlaceholder({
         description={description}
         breadcrumbs={breadcrumbs}
       />
-      <section className="mx-auto max-w-3xl px-4 py-16 md:px-6">
+      <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="rounded-lg border border-[--color-border] bg-white p-6 md:p-8">
           <p className="text-sm text-[--color-muted-foreground]">
             This section of the website is being prepared. The content will appear here

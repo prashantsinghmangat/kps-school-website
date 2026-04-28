@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import type { LucideProps } from "lucide-react";
+import { ArrowRight, type LucideIcon } from "lucide-react";
 import { Prose } from "@/components/common/prose";
+import { IconTile } from "@/components/common/icon-tile";
 
-type IconComponent = React.ForwardRefExoticComponent<
-  Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
->;
+type IconComponent = LucideIcon;
 
 interface CmsPageViewProps {
   title: string;
@@ -28,19 +26,19 @@ interface CmsPageViewProps {
  */
 export function CmsPageView({ title, body, icon: Icon, kicker, siblings }: CmsPageViewProps) {
   return (
-    <section className="mx-auto max-w-4xl px-4 py-12 md:px-6 md:py-16">
+    <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       <article className="relative overflow-hidden rounded-2xl border border-[--color-border] bg-white shadow-sm">
         <span
           aria-hidden
-          className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] via-[--color-secondary] to-[--color-highlight]"
+          className="absolute inset-x-0 top-0 h-1"
+          style={{
+            background:
+              "linear-gradient(90deg, #0a3d62 0%, #174873 50%, #f5b800 100%)",
+          }}
         />
         <div className="p-6 pt-8 md:p-10 md:pt-12">
           <div className="flex items-start gap-4">
-            {Icon ? (
-              <span className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
-                <Icon size={22} />
-              </span>
-            ) : null}
+            {Icon ? <IconTile icon={Icon} size="lg" tone="gradient" /> : null}
             <div>
               <h2 className="font-[family-name:var(--font-heading)] text-2xl font-bold text-[--color-neutral-dark] md:text-3xl">
                 {title}

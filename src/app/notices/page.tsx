@@ -25,7 +25,7 @@ export default async function NoticesPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         {notices.length === 0 ? (
           <div className="rounded-lg border border-[--color-border] bg-white p-6 text-sm text-[--color-muted-foreground]">
             There are no notices posted at the moment. Please check back later — or visit

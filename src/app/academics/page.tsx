@@ -26,11 +26,11 @@ export default async function AcademicsPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <Prose text={ac.overview} />
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6 md:pb-16">
+      <section className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 md:pb-16 lg:px-8">
         <h2 className="font-[family-name:var(--font-heading)] text-2xl font-semibold">
           Stages of learning
         </h2>
@@ -52,7 +52,7 @@ export default async function AcademicsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 pb-12 md:px-6 md:pb-16">
+      <section className="mx-auto max-w-5xl px-4 pb-12 sm:px-6 md:pb-16 lg:px-8">
         <h2 className="font-[family-name:var(--font-heading)] text-2xl font-semibold">
           Subjects at each stage
         </h2>
@@ -78,7 +78,7 @@ export default async function AcademicsPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-5xl gap-6 px-4 pb-12 md:grid-cols-2 md:px-6 md:pb-16">
+      <section className="mx-auto grid max-w-5xl gap-6 px-4 pb-12 md:grid-cols-2 sm:px-6 md:pb-16 lg:px-8">
         <div className="rounded-lg border border-[--color-border] bg-white p-6">
           <h2 className="font-[family-name:var(--font-heading)] text-xl font-semibold">
             Assessment
@@ -95,7 +95,7 @@ export default async function AcademicsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 pb-16 md:px-6">
+      <section className="mx-auto max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="flex flex-wrap gap-3">
           <Link
             href="/academics/classes"

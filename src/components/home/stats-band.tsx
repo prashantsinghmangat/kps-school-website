@@ -39,23 +39,26 @@ export function StatsBand() {
         aria-hidden
         className="pointer-events-none absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-[--color-accent]/20 blur-3xl"
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-10 md:px-6 md:py-12">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12 lg:px-8">
+        <div className="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {items.map((it) => {
             const Icon = it.icon;
             return (
               <div
                 key={it.label}
-                className="flex items-start gap-4 rounded-xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm transition hover:bg-white/15"
+                className="flex items-start gap-3 rounded-xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm transition hover:bg-white/15 sm:gap-4 sm:p-5"
               >
-                <span className="inline-flex h-11 w-11 flex-none items-center justify-center rounded-md bg-[--color-accent] text-[--color-accent-foreground] shadow-md">
-                  <Icon size={22} />
+                <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-md bg-[--color-accent] text-[--color-accent-foreground] shadow-md sm:h-11 sm:w-11">
+                  <Icon size={20} className="sm:hidden" />
+                  <Icon size={22} className="hidden sm:inline-block" />
                 </span>
-                <div>
-                  <p className="font-[family-name:var(--font-heading)] text-xl font-bold tracking-tight md:text-2xl">
+                <div className="min-w-0">
+                  <p className="font-[family-name:var(--font-heading)] text-lg font-bold tracking-tight sm:text-xl md:text-2xl">
                     {it.value}
                   </p>
-                  <p className="mt-0.5 text-xs uppercase tracking-wide opacity-85">{it.label}</p>
+                  <p className="mt-0.5 text-[11px] uppercase tracking-wide opacity-85 sm:text-xs">
+                    {it.label}
+                  </p>
                 </div>
               </div>
             );

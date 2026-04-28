@@ -78,7 +78,7 @@ export default async function HomeworkIndexPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-[--color-border] bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[--color-muted-foreground] shadow-sm">
           <span className="h-2 w-2 rounded-full bg-[--color-primary]" />
           {totalItems} downloadable {totalItems === 1 ? "item" : "items"} across {allClasses.length} classes
@@ -91,7 +91,10 @@ export default async function HomeworkIndexPage() {
             return (
               <article key={g.key}>
                 <header className="flex items-center gap-3">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
+                  <span
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-white shadow-sm"
+                    style={{ background: "linear-gradient(135deg, #0a3d62, #174873)" }}
+                  >
                     <Icon size={20} />
                   </span>
                   <div>

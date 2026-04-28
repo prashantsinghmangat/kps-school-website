@@ -99,7 +99,7 @@ export default async function HomeworkClassPage({ params }: Props) {
         ]}
       />
 
-      <section className="mx-auto max-w-4xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         {klass.items.length === 0 ? (
           <div className="flex flex-col items-center gap-3 rounded-2xl border border-dashed border-[--color-border] bg-white p-12 text-center shadow-sm">
             <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[--color-surface-cool] text-[--color-primary]">

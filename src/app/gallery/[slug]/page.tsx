@@ -43,7 +43,7 @@ export default async function GalleryCategoryPage({ params }: Props) {
         ]}
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
           {cat.images.map((img, i) => (
             <div

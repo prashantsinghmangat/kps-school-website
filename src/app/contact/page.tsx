@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { PageHero } from "@/components/common/page-hero";
 import { ContactForm } from "@/components/forms/contact-form";
+import { IconTile } from "@/components/common/icon-tile";
 import { JsonLdLocalBusiness } from "@/components/seo/json-ld";
 import { getSiteSettings } from "@/lib/api";
 
@@ -38,16 +39,15 @@ export default async function ContactPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <article className="group relative overflow-hidden rounded-xl border border-[--color-border] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[--color-primary]/40 hover:shadow-lg">
             <span
               aria-hidden
-              className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] to-[--color-secondary] opacity-80"
+              className="absolute inset-x-0 top-0 h-1"
+              style={{ background: "linear-gradient(90deg, #0a3d62, #174873)" }}
             />
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
-              <MapPin size={22} />
-            </span>
+            <IconTile icon={MapPin} size="lg" tone="gradient" />
             <h2 className="mt-4 font-[family-name:var(--font-heading)] text-lg font-semibold text-[--color-neutral-dark]">
               Visit us
             </h2>
@@ -63,11 +63,10 @@ export default async function ContactPage() {
           <article className="group relative overflow-hidden rounded-xl border border-[--color-border] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[--color-primary]/40 hover:shadow-lg">
             <span
               aria-hidden
-              className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] to-[--color-secondary] opacity-80"
+              className="absolute inset-x-0 top-0 h-1"
+              style={{ background: "linear-gradient(90deg, #0a3d62, #174873)" }}
             />
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
-              <Phone size={22} />
-            </span>
+            <IconTile icon={Phone} size="lg" tone="gradient" />
             <h2 className="mt-4 font-[family-name:var(--font-heading)] text-lg font-semibold text-[--color-neutral-dark]">
               Call us
             </h2>
@@ -89,11 +88,10 @@ export default async function ContactPage() {
           <article className="group relative overflow-hidden rounded-xl border border-[--color-border] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[--color-primary]/40 hover:shadow-lg">
             <span
               aria-hidden
-              className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] to-[--color-secondary] opacity-80"
+              className="absolute inset-x-0 top-0 h-1"
+              style={{ background: "linear-gradient(90deg, #0a3d62, #174873)" }}
             />
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
-              <Mail size={22} />
-            </span>
+            <IconTile icon={Mail} size="lg" tone="gradient" />
             <h2 className="mt-4 font-[family-name:var(--font-heading)] text-lg font-semibold text-[--color-neutral-dark]">
               Email us
             </h2>
@@ -114,7 +112,10 @@ export default async function ContactPage() {
         </div>
 
         <div className="mt-8 overflow-hidden rounded-xl border border-[--color-border] bg-white shadow-sm">
-          <div className="bg-gradient-to-r from-[--color-primary] to-[--color-secondary] px-6 py-4 text-white">
+          <div
+            className="px-6 py-4 text-white"
+            style={{ background: "linear-gradient(90deg, #0a3d62, #174873)" }}
+          >
             <div className="flex items-center gap-3">
               <Clock size={20} className="text-[--color-highlight]" />
               <h2 className="font-[family-name:var(--font-heading)] text-lg font-semibold">

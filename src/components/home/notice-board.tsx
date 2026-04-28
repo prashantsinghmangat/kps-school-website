@@ -8,7 +8,7 @@ export async function NoticeBoard() {
 
   return (
     <section className="border-y border-[--color-border] bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 md:flex-row md:items-center md:gap-8 md:px-6">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 sm:px-6 md:flex-row md:items-center md:gap-8 md:py-6 lg:px-8">
         <div className="flex items-center gap-3">
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[--color-primary] text-[--color-primary-foreground]">
             <Bell size={18} />

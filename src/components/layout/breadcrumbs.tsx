@@ -26,19 +26,26 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="mx-auto max-w-7xl px-4 py-3 md:px-6">
-      <ol className="flex flex-wrap items-center gap-1 text-sm text-[--color-muted-foreground]">
+    <nav
+      aria-label="Breadcrumb"
+      className="mx-auto max-w-7xl px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8"
+    >
+      <ol className="flex flex-wrap items-center gap-x-1 gap-y-1 text-xs text-[--color-muted-foreground] sm:text-sm">
         {items.map((c, i) => {
           const isLast = i === items.length - 1;
           return (
             <li key={c.href} className="flex items-center gap-1">
-              {i > 0 ? <ChevronRight size={14} aria-hidden /> : null}
+              {i > 0 ? <ChevronRight size={12} aria-hidden className="sm:hidden" /> : null}
+              {i > 0 ? <ChevronRight size={14} aria-hidden className="hidden sm:inline" /> : null}
               {isLast ? (
-                <span aria-current="page" className="font-medium text-[--color-foreground]">
+                <span
+                  aria-current="page"
+                  className="max-w-[16ch] truncate font-medium text-[--color-foreground] sm:max-w-none"
+                >
                   {c.label}
                 </span>
               ) : (
-                <Link href={c.href} className="hover:text-[--color-primary]">
+                <Link href={c.href} className="transition hover:text-[--color-primary]">
                   {c.label}
                 </Link>
               )}

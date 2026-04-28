@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { PageHero } from "@/components/common/page-hero";
 import { Prose } from "@/components/common/prose";
+import { IconTile } from "@/components/common/icon-tile";
 import { getAbout } from "@/lib/api";
 
 export const metadata: Metadata = {
@@ -75,7 +76,7 @@ export default async function AboutPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <Prose text={about.narrative} />
 
         {/* Pull-quote highlighting the school motto */}
@@ -121,7 +122,7 @@ export default async function AboutPage() {
 
       {/* Related topics — card grid, not a pill row */}
       <section className="bg-[--color-surface-cool]">
-        <div className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
           <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
             <span className="inline-block h-[2px] w-8 bg-[--color-highlight]" />
             More about us
@@ -143,9 +144,8 @@ export default async function AboutPage() {
                     aria-hidden
                     className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] via-[--color-secondary] to-[--color-highlight] opacity-80"
                   />
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
-                    <Icon size={20} />
-                  </span>
+                  <IconTile icon={Icon} size="md" tone="gradient" />
+
                   <h3 className="mt-4 font-[family-name:var(--font-heading)] text-base font-semibold text-[--color-neutral-dark] group-hover:text-[--color-primary]">
                     {r.label}
                   </h3>

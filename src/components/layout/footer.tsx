@@ -78,10 +78,11 @@ export async function Footer() {
         className="pointer-events-none absolute -left-40 bottom-0 h-[24rem] w-[24rem] rounded-full bg-[--color-accent]/10 blur-3xl"
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 pt-14 md:px-6 md:pt-20">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
-          {/* Brand column */}
-          <div className="lg:col-span-2">
+      <div className="relative mx-auto max-w-7xl px-4 pt-14 sm:px-6 md:pt-20 lg:px-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6">
+          {/* Brand column — full width on mobile, spans 2 of 6 on lg+ so the
+              4 link columns fit cleanly on one row at desktop. */}
+          <div className="sm:col-span-2 lg:col-span-2">
             <div className="inline-flex items-center gap-3 rounded-xl bg-white/95 p-3 pr-5 shadow-lg ring-1 ring-white/20 backdrop-blur">
               <SchoolLogo variant="full" height={44} />
             </div>
@@ -93,12 +94,20 @@ export async function Footer() {
 
             <ul className="mt-6 space-y-3 text-sm">
               <li className="flex gap-3">
-                <MapPin size={16} className="mt-0.5 flex-none text-[--color-highlight]" />
+                <MapPin
+                  size={16}
+                  className="mt-0.5 flex-none"
+                  style={{ color: "#f5b800" }}
+                />
                 <span className="text-white/85">{settings.address.full}</span>
               </li>
               {settings.phones.map((p) => (
                 <li key={p.telHref} className="flex gap-3">
-                  <Phone size={16} className="mt-0.5 flex-none text-[--color-highlight]" />
+                  <Phone
+                    size={16}
+                    className="mt-0.5 flex-none"
+                    style={{ color: "#f5b800" }}
+                  />
                   <a
                     href={p.telHref}
                     className="text-white/90 transition hover:text-white hover:underline underline-offset-4"
@@ -110,7 +119,11 @@ export async function Footer() {
               ))}
               {settings.emails.slice(0, 1).map((e) => (
                 <li key={e.address} className="flex gap-3">
-                  <Mail size={16} className="mt-0.5 flex-none text-[--color-highlight]" />
+                  <Mail
+                    size={16}
+                    className="mt-0.5 flex-none"
+                    style={{ color: "#f5b800" }}
+                  />
                   <a
                     href={`mailto:${e.address}`}
                     className="text-white/90 transition hover:text-white hover:underline underline-offset-4"
@@ -123,7 +136,10 @@ export async function Footer() {
 
             {activeSocials.length > 0 ? (
               <div className="mt-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[--color-highlight]">
+                <p
+                  className="text-xs font-semibold uppercase tracking-[0.22em]"
+                  style={{ color: "#f5b800" }}
+                >
                   Follow Us
                 </p>
                 <ul className="mt-3 flex flex-wrap gap-2">
@@ -151,8 +167,16 @@ export async function Footer() {
           {/* Link columns */}
           {footerLinks.map((col) => (
             <div key={col.title}>
-              <h4 className="relative pb-3 font-[family-name:var(--font-heading)] text-xs font-bold uppercase tracking-[0.18em] text-[--color-highlight] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-8 after:bg-[--color-highlight]/60">
+              <h4
+                className="relative pb-3 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-[0.18em]"
+                style={{ color: "#f5b800" }}
+              >
                 {col.title}
+                <span
+                  aria-hidden
+                  className="absolute bottom-0 left-0 h-[2px] w-8"
+                  style={{ backgroundColor: "#f5b800", opacity: 0.6 }}
+                />
               </h4>
               <ul className="mt-4 space-y-2.5 text-sm">
                 {col.items.map((item) => (
@@ -172,11 +196,11 @@ export async function Footer() {
 
         {/* Bottom strip */}
         <div className="mt-14 border-t border-white/15 pt-6 pb-24 md:pb-8">
-          <div className="flex flex-col gap-3 text-xs text-white/75 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-3 text-xs text-white/75 lg:flex-row lg:items-center lg:justify-between">
             <p>
               © {year} {SITE_NAME}. All rights reserved.
             </p>
-            <p className="italic tracking-wide text-[--color-highlight]">
+            <p className="italic tracking-wide" style={{ color: "#f5b800" }}>
               Labor Omnia Vincit — Hard work conquers all
             </p>
             <div className="flex flex-wrap items-center gap-4">

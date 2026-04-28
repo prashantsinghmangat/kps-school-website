@@ -37,7 +37,7 @@ export default async function FaqPage() {
           { href: "/faq", label: "FAQ" },
         ]}
       />
-      <section className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <ul className="space-y-3">
           {faq.map((q, i) => (
             <li key={i}>

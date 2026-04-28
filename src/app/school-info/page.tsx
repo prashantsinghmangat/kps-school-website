@@ -49,7 +49,7 @@ export default async function SchoolInfoPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         {/* Compliance note as a trust banner */}
         <div className="flex items-start gap-3 rounded-xl border border-[--color-primary]/20 bg-gradient-to-br from-[--color-surface-cool] to-white p-4 shadow-sm md:p-5">
           <ShieldCheck size={22} className="mt-0.5 flex-none text-[--color-primary]" />
@@ -100,7 +100,10 @@ export default async function SchoolInfoPage() {
           <div className="overflow-hidden rounded-xl border border-[--color-border] bg-white shadow-sm">
             <div className="overflow-x-auto">
               <table className="min-w-full text-sm">
-                <thead className="bg-gradient-to-r from-[--color-primary] to-[--color-secondary] text-left text-xs font-semibold uppercase tracking-wider text-white">
+                <thead
+                  className="text-left text-xs font-semibold uppercase tracking-wider text-white"
+                  style={{ background: "linear-gradient(90deg, #0a3d62, #174873)" }}
+                >
                   <tr>
                     <th rowSpan={2} className="px-4 py-3 align-bottom">
                       Year
@@ -196,7 +199,10 @@ function DisclosureSection({
   return (
     <section className="mt-10">
       <header className="flex items-center gap-3">
-        <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] font-[family-name:var(--font-heading)] text-base font-black text-white shadow-sm">
+        <span
+          className="inline-flex h-11 w-11 items-center justify-center rounded-lg font-[family-name:var(--font-heading)] text-base font-black text-white shadow-sm"
+          style={{ background: "linear-gradient(135deg, #0a3d62, #174873)" }}
+        >
           {letter}
         </span>
         <div>

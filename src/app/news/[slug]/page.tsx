@@ -62,7 +62,7 @@ export default async function NewsDetailPage({ params }: Props) {
         ]}
       />
 
-      <section className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <Prose text={item.body} />
         <div className="mt-10">
           <Link href="/news" className="text-sm text-[--color-primary] hover:underline">

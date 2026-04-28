@@ -1,14 +1,35 @@
-import * as LucideIcons from "lucide-react";
-import type { LucideProps } from "lucide-react";
+import {
+  GraduationCap,
+  Users,
+  Laptop,
+  Trophy,
+  Palette,
+  ShieldCheck,
+  HelpCircle,
+  type LucideIcon,
+} from "lucide-react";
 import { getWhyChooseUs } from "@/lib/api";
 
-type IconComponent = React.ForwardRefExoticComponent<
-  Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
->;
+/**
+ * Static icon map — explicit so the icons used here are tree-shake-safe
+ * and never depend on a dynamic string lookup that could miss in the dev
+ * cache (which previously left empty icon tiles on mobile).
+ *
+ * If you add a new entry to `src/content/enriched/why-choose-us.ts`, also
+ * add the icon component here. The HelpCircle fallback ensures the tile
+ * never renders empty.
+ */
+const ICON_MAP: Record<string, LucideIcon> = {
+  GraduationCap,
+  Users,
+  Laptop,
+  Trophy,
+  Palette,
+  ShieldCheck,
+};
 
-function lookupIcon(name: string): IconComponent {
-  const lib = LucideIcons as unknown as Record<string, IconComponent>;
-  return lib[name] ?? lib.HelpCircle;
+function lookupIcon(name: string): LucideIcon {
+  return ICON_MAP[name] ?? HelpCircle;
 }
 
 export async function WhyChooseUsGrid() {
@@ -21,16 +42,16 @@ export async function WhyChooseUsGrid() {
         aria-hidden
         className="pointer-events-none absolute -left-20 -top-20 h-80 w-80 rounded-full bg-[--color-primary]/10 blur-3xl"
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
+      <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
         <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
           <span className="inline-block h-[2px] w-8 bg-[--color-highlight]" />
           Why KPS
         </p>
-        <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight md:text-4xl">
+        <h2 className="mt-2 font-[family-name:var(--font-heading)] text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
           Six reasons families choose Krishna Public School
         </h2>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:gap-5 md:mt-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {items.map((item) => {
             const Icon = lookupIcon(item.icon);
             return (
@@ -43,8 +64,15 @@ export async function WhyChooseUsGrid() {
                   aria-hidden
                   className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[--color-primary] via-[--color-secondary] to-[--color-highlight] opacity-80 transition-opacity group-hover:opacity-100"
                 />
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] text-white shadow-sm">
-                  <Icon size={22} />
+                {/* Icon tile — solid primary so it's visible even if the
+                    gradient utility ever fails to paint. Inline style is
+                    a belt-and-suspenders against CSS-var resolution edge
+                    cases under Tailwind v4 + dev HMR. */}
+                <span
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-lg text-white shadow-sm"
+                  style={{ backgroundColor: "#0a3d62" }}
+                >
+                  <Icon size={22} strokeWidth={2} />
                 </span>
                 <h3 className="mt-4 font-[family-name:var(--font-heading)] text-lg font-semibold text-[--color-neutral-dark]">
                   {item.title}

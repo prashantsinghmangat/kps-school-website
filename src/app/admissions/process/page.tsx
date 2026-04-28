@@ -24,7 +24,7 @@ export default async function AdmissionProcessPage() {
           { href: "/admissions/process", label: "Process" },
         ]}
       />
-      <section className="mx-auto max-w-4xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <ol className="space-y-4">
           {ad.process.map((step) => (
             <li

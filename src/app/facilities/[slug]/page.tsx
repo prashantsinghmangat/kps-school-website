@@ -57,7 +57,7 @@ export default async function FacilityDetailPage({ params }: Props) {
         ]}
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         {f.images[0] ? (
           <div className="relative overflow-hidden rounded-2xl bg-[--color-muted] shadow-lg ring-1 ring-[--color-border]">
             <div className="relative aspect-[16/9]">
@@ -111,7 +111,10 @@ export default async function FacilityDetailPage({ params }: Props) {
           {f.highlights.length ? (
             <aside className="lg:sticky lg:top-36 lg:self-start">
               <div className="overflow-hidden rounded-xl border border-[--color-border] bg-white shadow-sm">
-                <div className="bg-gradient-to-r from-[--color-primary] to-[--color-secondary] px-5 py-3 text-white">
+                <div
+                  className="px-5 py-3 text-white"
+                  style={{ background: "linear-gradient(90deg, #0a3d62, #174873)" }}
+                >
                   <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em]">
                     <Sparkles size={14} className="text-[--color-highlight]" />
                     Highlights

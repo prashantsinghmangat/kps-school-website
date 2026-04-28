@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/common/page-hero";
+import { FormShell } from "@/components/common/form-shell";
 import { EnquiryForm } from "@/components/forms/enquiry-form";
 
 export const metadata: Metadata = {
@@ -21,8 +22,10 @@ export default function EnquiryPage() {
           { href: "/enquiry", label: "Enquiry" },
         ]}
       />
-      <section className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16">
-        <EnquiryForm />
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+        <FormShell>
+          <EnquiryForm />
+        </FormShell>
       </section>
     </>
   );

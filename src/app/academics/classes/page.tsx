@@ -26,7 +26,7 @@ export default async function ClassesOfferedPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="space-y-6">
           {ac.stages.map((s) => (
             <article

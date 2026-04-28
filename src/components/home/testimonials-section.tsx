@@ -19,19 +19,19 @@ export async function TestimonialsSection() {
         aria-hidden
         className="pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-[--color-highlight]/15 blur-3xl"
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
+      <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
         <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
           <span className="inline-block h-[2px] w-8 bg-[--color-highlight]" />
           What Families Say
         </p>
-        <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight md:text-4xl">
+        <h2 className="mt-2 font-[family-name:var(--font-heading)] text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
           Voices from the KPS community
         </h2>
         <p className="mt-2 max-w-2xl text-[--color-muted-foreground]">
           Parents, students and alumni on what the school has meant to them.
         </p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:gap-6 md:mt-10 md:grid-cols-3">
           {featured.map((t, i) => (
             <article
               key={i}

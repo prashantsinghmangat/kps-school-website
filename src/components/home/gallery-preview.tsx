@@ -20,14 +20,14 @@ export async function GalleryPreview() {
   if (preview.length === 0) return null;
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
-      <div className="flex flex-wrap items-end justify-between gap-4">
+    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+      <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
             <span className="inline-block h-[2px] w-8 bg-[--color-highlight]" />
             Through the year
           </p>
-          <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight md:text-4xl">
+          <h2 className="mt-2 font-[family-name:var(--font-heading)] text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
             Photo Gallery
           </h2>
         </div>
@@ -39,7 +39,7 @@ export async function GalleryPreview() {
         </Link>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+      <div className="mt-8 grid grid-cols-2 gap-3 md:mt-10 md:grid-cols-4 md:gap-4">
         {preview.map((img, i) => (
           <Link
             key={`${i}-${img.url}`}

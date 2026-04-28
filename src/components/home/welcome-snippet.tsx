@@ -12,8 +12,8 @@ export async function WelcomeSnippet() {
         aria-hidden
         className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-[--color-accent]/15 blur-3xl"
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
-      <div className="grid items-center gap-10 md:grid-cols-[1fr,360px]">
+      <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+      <div className="grid items-start gap-8 lg:grid-cols-[1fr,360px] lg:items-center lg:gap-12">
         <div>
           <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
             <span className="inline-block h-[2px] w-8 bg-[--color-accent]" />

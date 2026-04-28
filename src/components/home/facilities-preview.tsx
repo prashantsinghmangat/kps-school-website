@@ -11,14 +11,14 @@ export async function FacilitiesPreview() {
 
   return (
     <section className="bg-[--color-muted]">
-      <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+        <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-[--color-primary]">
               <span className="inline-block h-[2px] w-8 bg-[--color-highlight]" />
               The Campus
             </p>
-            <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight md:text-4xl">
+            <h2 className="mt-2 font-[family-name:var(--font-heading)] text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
               Facilities built for real learning
             </h2>
           </div>
@@ -26,11 +26,11 @@ export async function FacilitiesPreview() {
             href="/facilities"
             className="inline-flex items-center gap-1 text-sm font-semibold text-[--color-primary] hover:underline"
           >
-            View all facilities <ArrowUpRight size={16} />
+            View all <ArrowUpRight size={16} />
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:mt-10">
           {preview.map((f) => (
             <Link
               key={f.slug}

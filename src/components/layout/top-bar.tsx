@@ -15,8 +15,11 @@ export function TopBar({ settings }: TopBarProps) {
   const firstEmail = settings.emails[0];
 
   return (
-    <div className="hidden border-b border-white/10 bg-[--color-secondary] text-[--color-secondary-foreground] md:block">
-      <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 text-xs md:px-6">
+    <div
+      className="hidden border-b border-white/10 text-white md:block"
+      style={{ backgroundColor: "#174873" }}
+    >
+      <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 text-xs sm:px-6 lg:px-8">
         <div className="flex items-center gap-5">
           {firstPhone ? (
             <a

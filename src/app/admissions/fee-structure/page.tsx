@@ -26,7 +26,7 @@ export default async function FeeStructurePage() {
           { href: "/admissions/fee-structure", label: "Fee Structure" },
         ]}
       />
-      <section className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="rounded-lg border border-[--color-border] bg-white p-6 md:p-8">
           <p className="text-[--color-foreground] leading-relaxed">{ad.feeStructureNote}</p>
 

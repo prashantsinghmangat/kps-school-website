@@ -37,7 +37,7 @@ export default async function PayFeesPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <a
             href={HDFC_FEE_URL}

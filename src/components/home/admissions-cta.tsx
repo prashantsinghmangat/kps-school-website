@@ -9,8 +9,8 @@ export function AdmissionsCta() {
         aria-hidden
         className="pointer-events-none absolute -left-32 top-1/2 h-[120%] w-[60%] -translate-y-1/2 rounded-full bg-[--color-highlight]/20 blur-3xl"
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-16">
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-16 lg:px-8">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full bg-[--color-accent] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[--color-accent-foreground]">
               ★ Admissions Open · 2026–27

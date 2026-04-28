@@ -36,7 +36,7 @@ export default async function NewsPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-4xl px-4 py-12 md:px-6 md:py-16">
+      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <ul className="space-y-5">
           {sorted.map((n) => (
             <li

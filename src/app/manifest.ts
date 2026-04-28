@@ -10,9 +10,11 @@ export default function manifest(): MetadataRoute.Manifest {
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#0a3d62",
+    // Next.js auto-routes app/icon.tsx → /icon and app/apple-icon.tsx →
+    // /apple-icon (no extension). Match those paths here.
     icons: [
-      { src: "/icon.png", sizes: "512x512", type: "image/png" },
-      { src: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+      { src: "/icon", sizes: "64x64", type: "image/png" },
+      { src: "/apple-icon", sizes: "180x180", type: "image/png" },
     ],
   };
 }

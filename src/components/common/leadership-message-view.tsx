@@ -28,7 +28,7 @@ export function LeadershipMessageView({ msg, related }: LeadershipMessageViewPro
       : msg.body.slice(0, 180).trimEnd() + "…";
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+    <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       <div className="grid gap-10 md:grid-cols-[260px,1fr] md:items-start">
         {/* Portrait column */}
         <div className="mx-auto w-full max-w-[260px] md:sticky md:top-36">
@@ -60,7 +60,10 @@ export function LeadershipMessageView({ msg, related }: LeadershipMessageViewPro
               )}
             </div>
           </div>
-          <div className="mt-5 rounded-lg bg-gradient-to-r from-[--color-primary] to-[--color-secondary] px-4 py-3 text-center text-white shadow-sm">
+          <div
+            className="mt-5 rounded-lg px-4 py-3 text-center text-white shadow-sm"
+            style={{ background: "linear-gradient(90deg, #0a3d62, #174873)" }}
+          >
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[--color-highlight]">
               {msg.role}
             </p>
